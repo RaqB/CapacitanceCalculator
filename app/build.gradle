@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+def Properties signingProp = new Properties()
+signingProp.load(new FileInputStream(file("../signing.properties")))
+
+android {
+    signingConfigs {
+        config {
+            try {
+                keyAlias signingProp["KEY_ALIAS"]
+                keyPassword signingProp["KEY_PASSWORD"]
+                storeFile file(signingProp["STORE_FILE"])
+                storePassword signingProp["STORE_PASSWORD"]
+            } catch (ex) {
+                throw new InvalidUserDataException("You should define KEY_ALIAS, " +
+                        "KEY_PASSWORD, STORE_FILE and STORE_PASSWORD in gradle.properties.")
+            }
+        }
+    }
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+    defaultConfig {
+        applicationId "projects.santiago.physicalstuff"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$rootProject.androidSupportVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    compile "com.android.support:support-v4:$rootProject.androidSupportVersion"
+    compile "com.android.support:design:$rootProject.androidSupportVersion"
+    compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+    compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxJavaVersion"
+    testCompile "junit:junit:$rootProject.junitVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}
