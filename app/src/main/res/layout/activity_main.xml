@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="projects.santiago.physicalstuff.view.MainActivity">
+
+    <LinearLayout
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_area"
+            android:text="@string/main_area"
+            android:textSize="@dimen/main_field_text_size"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/edt_area"
+                android:layout_weight="6"
+                android:inputType="numberDecimal"
+                android:hint="@string/main_valor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_unidad_area"
+                android:text="@string/main_unidad"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:textAllCaps="false"
+                style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_distancia"
+            android:text="@string/main_distancia"
+            android:textSize="@dimen/main_field_text_size"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/edt_distancia"
+                android:layout_weight="6"
+                android:hint="@string/main_valor"
+                android:inputType="numberDecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_unidad_distancia"
+                android:text="@string/main_unidad"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:textAllCaps="false"
+                style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_dielectico"
+            android:text="@string/main_dielectico"
+            android:textSize="@dimen/main_field_text_size"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_dielectico"
+                android:text="@string/main_material"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:textAllCaps="false"
+                style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_solucionar"
+        android:text="Solucionar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/txt_resultado"
+        android:textStyle="bold|italic"
+        android:textSize="18sp"
+        android:hint="Resultado"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

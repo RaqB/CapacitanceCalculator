@@ -35,4 +35,6 @@ ext {
     glideVersion = '3.7.0'
     rxJavaVersion = "2.0.1"
     junitVersion = "4.12"
+    daggerVersion = "2.10"
+    jsr250apiVersion = "1.0"
 }
