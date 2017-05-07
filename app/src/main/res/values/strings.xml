@@ -1,3 +1,56 @@
 <resources>
     <string name="app_name">Physical Stuff</string>
+
+    <string name="unidad_kilometro">Kilometro</string>
+    <string name="unidad_metro">Metro</string>
+    <string name="unidad_centimetro">Centímetro</string>
+    <string name="unidad_decimetro">Decímetro</string>
+    <string name="unidad_milimetro">Milímetro</string>
+    <string name="unidad_micrometro">Micrómetro</string>
+    <string name="unidad_nanometro">Nanómetro</string>
+    <string name="unidad_picometro">Picómetro</string>
+    <string name="unidad_faradio">Faradio</string>
+    <string name="unidad_milifaradio">Milifaradio</string>
+    <string name="unidad_microfaradio">Microfaradio</string>
+    <string name="unidad_nanofaradio">Nanofaradio</string>
+    <string name="unidad_picofaradio">Picofaradio</string>
+
+    <string name="simbolo_kilometro">km</string>
+    <string name="simbolo_metro">m</string>
+    <string name="simbolo_centimetro">cm</string>
+    <string name="simbolo_decimetro">dm</string>
+    <string name="simbolo_milimetro">mm</string>
+    <string name="simbolo_micrometro">um</string>
+    <string name="simbolo_nanometro">nm</string>
+    <string name="simbolo_picometro">pm</string>
+    <string name="simbolo_faradio">F</string>
+    <string name="simbolo_milifaradio">mF</string>
+    <string name="simbolo_microfaradio">uF</string>
+    <string name="simbolo_nanofaradio">nF</string>
+    <string name="simbolo_picofaradio">pF</string>
+
+    <string name="dielectico_vacio">Vacio</string>
+    <string name="dielectico_aceite_mineral">Aceite mineral</string>
+    <string name="dielectico_aceite">Aceite</string>
+    <string name="dielectico_agua_destilada">Agua destilada</string>
+    <string name="dielectico_caucho">Caucho</string>
+    <string name="dielectico_acetona">Acetona</string>
+    <string name="dielectico_aire">Aire</string>
+    <string name="dielectico_papel">Papel</string>
+    <string name="dielectico_papel_parafinado">Papel parafinado</string>
+    <string name="dielectico_parafina">Parafina</string>
+    <string name="dielectico_cuarzo">Cuarzo</string>
+    <string name="dielectico_pvc">PVC</string>
+    <string name="dielectico_baquelita">Baquelita</string>
+    <string name="dielectico_vidrio">Vidrio</string>
+    <string name="dielectico_mica">Mica</string>
+    <string name="main_area">Área</string>
+    <string name="main_valor">Valor</string>
+    <string name="main_unidad">Unidad</string>
+    <string name="main_distancia">Distancia</string>
+    <string name="main_dielectico">Dieléctico</string>
+    <string name="main_material">Material</string>
+    <string name="main_dialog_choose_area_unit_title">Unidades de área</string>
+    <string name="main_dialog_choose_distancia_unit_title">Unidades de longitud</string>
+    <string name="main_dialog_choose_dielectico_title">Dielécticos comunes</string>
 </resources>
