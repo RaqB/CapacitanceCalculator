@@ -9,6 +9,7 @@
     <string name="unidad_micrometro">Micrómetro</string>
     <string name="unidad_nanometro">Nanómetro</string>
     <string name="unidad_picometro">Picómetro</string>
+
     <string name="unidad_faradio">Faradio</string>
     <string name="unidad_milifaradio">Milifaradio</string>
     <string name="unidad_microfaradio">Microfaradio</string>
@@ -23,6 +24,16 @@
     <string name="simbolo_micrometro">um</string>
     <string name="simbolo_nanometro">nm</string>
     <string name="simbolo_picometro">pm</string>
+
+    <string name="simbolo_kilometro_cuadrado">km^2</string>
+    <string name="simbolo_metro_cuadrado">m^2</string>
+    <string name="simbolo_centimetro_cuadrado">cm^2</string>
+    <string name="simbolo_decimetro_cuadrado">dm^2</string>
+    <string name="simbolo_milimetro_cuadrado">mm^2</string>
+    <string name="simbolo_micrometro_cuadrado">um^2</string>
+    <string name="simbolo_nanometro_cuadrado">nm^2</string>
+    <string name="simbolo_picometro_cuadrado">pm^2</string>
+
     <string name="simbolo_faradio">F</string>
     <string name="simbolo_milifaradio">mF</string>
     <string name="simbolo_microfaradio">uF</string>
@@ -44,6 +55,7 @@
     <string name="dielectico_baquelita">Baquelita</string>
     <string name="dielectico_vidrio">Vidrio</string>
     <string name="dielectico_mica">Mica</string>
+
     <string name="main_area">Área</string>
     <string name="main_valor">Valor</string>
     <string name="main_unidad">Unidad</string>

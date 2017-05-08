@@ -2,7 +2,6 @@ package projects.santiago.physicalstuff.model.interactor;
 
 import android.content.Context;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -13,7 +12,8 @@ import projects.santiago.physicalstuff.model.entity.Capacitancia;
 import projects.santiago.physicalstuff.model.entity.Dielectrico;
 import projects.santiago.physicalstuff.model.entity.Longitud;
 import projects.santiago.physicalstuff.model.entity.Solucionador;
-import projects.santiago.physicalstuff.model.entity.ULongitud;
+import projects.santiago.physicalstuff.model.entity.unit.UArea;
+import projects.santiago.physicalstuff.model.entity.unit.ULongitud;
 
 /**
  * Created by santiago on 06/05/17.
@@ -29,10 +29,10 @@ public class MainInteractor implements IMainInteractor {
     @Override
     public List<String> getAllAreaUnitsAsPretty() {
         List<String> unitsAsPretty = new ArrayList<>();
-        for (ULongitud uLongitud : ULongitud.values()) {
-            String pretty = context.getString(uLongitud.getPretty());
-            String simbolo = context.getString(uLongitud.getSimbolo());
-            unitsAsPretty.add(String.format("%s (%s^2)", pretty, simbolo));
+        for (UArea uArea : UArea.values()) {
+            String name = context.getString(uArea.getName());
+            String simbolo = context.getString(uArea.getSimbolo());
+            unitsAsPretty.add(String.format("%s (%s)", name, simbolo));
         }
         return unitsAsPretty;
     }
@@ -41,9 +41,9 @@ public class MainInteractor implements IMainInteractor {
     public List<String> getAllLengthUnitAsPretty() {
         List<String> unitsAsPretty = new ArrayList<>();
         for (ULongitud uLongitud : ULongitud.values()) {
-            String pretty = context.getString(uLongitud.getPretty());
+            String nombre = context.getString(uLongitud.getName());
             String simbolo = context.getString(uLongitud.getSimbolo());
-            unitsAsPretty.add(String.format("%s (%s)", pretty, simbolo));
+            unitsAsPretty.add(String.format("%s (%s)", nombre, simbolo));
         }
         return unitsAsPretty;
     }
@@ -57,13 +57,13 @@ public class MainInteractor implements IMainInteractor {
                 if (dielectrico.isRange()) {
                     dielecticosAsPretty.add(String.format(Locale.getDefault(), "%s (De %.1f a %.1f %s)",
                             nombre,
-                            dielectrico.getFrom().doubleValue(),
-                            dielectrico.getTop().doubleValue(),
+                            dielectrico.getDesde().getEstimatedValue(),
+                            dielectrico.getHasta().getEstimatedValue(),
                             dielectrico.getUnidadAsString()));
                 } else {
                     dielecticosAsPretty.add(String.format(Locale.getDefault(), "%s (%.1f %s)",
                             nombre,
-                            dielectrico.getPermitividad().doubleValue(),
+                            dielectrico.getPermitividad().getEstimatedValue(),
                             dielectrico.getUnidadAsString()));
                 }
 

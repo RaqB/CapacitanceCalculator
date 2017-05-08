@@ -1,6 +1,12 @@
 package projects.santiago.physicalstuff.model.entity;
 
+import android.support.annotation.StringRes;
+
+import org.jscience.physics.amount.Amount;
+import org.jscience.physics.amount.Constants;
+
 import java.math.BigDecimal;
+import java.util.Locale;
 
 import projects.santiago.physicalstuff.R;
 
@@ -9,7 +15,7 @@ import projects.santiago.physicalstuff.R;
  */
 
 public enum Dielectrico {
-    VACIO(new BigDecimal(8.8541878176).movePointRight(-12), R.string.dielectico_vacio),
+    VACIO(Constants.ε0, R.string.dielectico_vacio),
     ACEITE_MINERAL(2.7, R.string.dielectico_aceite_mineral),
     ACEITE(2.8, R.string.dielectico_aceite),
     AGUA_DESTILADA(80.0, R.string.dielectico_agua_destilada),
@@ -25,42 +31,48 @@ public enum Dielectrico {
     VIDRIO(5.6, 10.0, R.string.dielectico_vidrio),
     MICA(5.4, R.string.dielectico_mica);
 
-    private BigDecimal permitividad;
-    private int nombre;
-    private Boolean range;
-    private BigDecimal from;
-    private BigDecimal top;
+    @StringRes
+    private final int nombre;
 
-    Dielectrico(BigDecimal permitividad, int nombre) {
+    private Amount<?> permitividad;
+    private Amount<?> desde;
+    private Amount<?> hasta;
+    private final Boolean range;
+
+    Dielectrico(Amount<?> permitividad, @StringRes int nombre) {
         this.permitividad = permitividad;
         this.nombre = nombre;
         this.range = false;
-        this.from = this.permitividad;
-        this.top = this.permitividad;
+        this.desde = this.permitividad;
+        this.hasta = this.permitividad;
     }
 
-    Dielectrico(Double permitividad, int nombre) {
-        this.permitividad = new BigDecimal(permitividad);
+    Dielectrico(Double permitividad, @StringRes int nombre) {
+        this.permitividad = Amount.valueOf(String.format(Locale.getDefault(), "%.2f", permitividad));
         this.nombre = nombre;
         this.range = false;
-        this.from = this.permitividad;
-        this.top = this.permitividad;
+        this.desde = this.permitividad;
+        this.hasta = this.permitividad;
     }
 
-    Dielectrico(Double from, Double top, int nombre) {
+    Dielectrico(Double desde, Double hasta, @StringRes int nombre) {
         this.permitividad = null;
         this.nombre = nombre;
         this.range = true;
-        this.from = new BigDecimal(from);
-        this.top = new BigDecimal(top);
+        this.desde = Amount.valueOf(String.format(Locale.getDefault(), "%.2f", desde));
+        this.hasta = Amount.valueOf(String.format(Locale.getDefault(), "%.2f", hasta));
     }
 
-    public void setPermitividad(Double permitividad) {
-        this.permitividad = new BigDecimal(permitividad);
-    }
-
-    public BigDecimal getPermitividad() {
+    public Amount<?> getPermitividad() {
         return permitividad;
+    }
+
+    public Amount<?> getDesde() {
+        return desde;
+    }
+
+    public Amount<?> getHasta() {
+        return hasta;
     }
 
     public int getNombre() {
@@ -71,15 +83,11 @@ public enum Dielectrico {
         return range;
     }
 
-    public BigDecimal getFrom() {
-        return from;
-    }
-
-    public BigDecimal getTop() {
-        return top;
+    public void setPermitividad(Double permitividad) {
+        this.permitividad = Amount.valueOf(String.format(Locale.getDefault(), "%.2f", permitividad));
     }
 
     public String getUnidadAsString() {
-        return "C^2/Nm^2";
+        return "F/m";
     }
 }

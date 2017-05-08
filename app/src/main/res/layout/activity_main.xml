@@ -38,8 +38,8 @@
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btn_unidad_area"
                 android:text="@string/main_unidad"
-                android:layout_marginLeft="4dp"
                 android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:textAllCaps="false"
                 style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
