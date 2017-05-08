@@ -2,15 +2,19 @@ package projects.santiago.physicalstuff.model.entity;
 
 import java.math.BigDecimal;
 
+import javax.measure.unit.Unit;
+
+import projects.santiago.physicalstuff.model.entity.unit.UArea;
+
 /**
  * Created by santiago on 06/05/17.
  */
 
 public class Area {
     private BigDecimal valor;
-    private ULongitud unidad;
+    private UArea unidad;
 
-    public Area(BigDecimal valor, ULongitud unidad) {
+    public Area(BigDecimal valor, UArea unidad) {
         this.valor = valor;
         this.unidad = unidad;
     }
@@ -26,15 +30,11 @@ public class Area {
         this.valor = valor;
     }
 
-    public ULongitud getUnidad() {
-        return unidad;
+    public Unit<javax.measure.quantity.Area> getUnidad() {
+        return unidad.getUnidad();
     }
 
-    public void setUnidad(ULongitud unidad) {
+    public void setUnidad(UArea unidad) {
         this.unidad = unidad;
-    }
-
-    public String getUnidadAsString() {
-        return unidad.getSimbolo() + "^2";
     }
 }

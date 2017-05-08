@@ -2,6 +2,11 @@ package projects.santiago.physicalstuff.model.entity;
 
 import java.math.BigDecimal;
 
+import javax.measure.quantity.Length;
+import javax.measure.unit.Unit;
+
+import projects.santiago.physicalstuff.model.entity.unit.ULongitud;
+
 /**
  * Created by santiago on 06/05/17.
  */
@@ -26,8 +31,8 @@ public class Longitud {
         this.valor = valor;
     }
 
-    public ULongitud getUnidad() {
-        return unidad;
+    public Unit<Length> getUnidad() {
+        return unidad.getUnidad();
     }
 
     public void setUnidad(ULongitud unidad) {

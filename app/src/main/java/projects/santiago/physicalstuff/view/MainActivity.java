@@ -8,10 +8,8 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Locale;
@@ -30,7 +28,7 @@ import projects.santiago.physicalstuff.model.entity.Area;
 import projects.santiago.physicalstuff.model.entity.Capacitancia;
 import projects.santiago.physicalstuff.model.entity.Dielectrico;
 import projects.santiago.physicalstuff.model.entity.Longitud;
-import projects.santiago.physicalstuff.model.entity.ULongitud;
+import projects.santiago.physicalstuff.model.entity.unit.ULongitud;
 
 public class MainActivity extends AppCompatActivity implements IMainView {
     private static final String TAG = MainActivity.class.getSimpleName();
