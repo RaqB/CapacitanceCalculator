@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Physical Stuff</string>
+    <string name="app_name">Capacitance Calculator</string>
 
-    <string name="unidad_kilometro">Kilometro</string>
+    <string name="unidad_kilometro">Kilómetro</string>
     <string name="unidad_metro">Metro</string>
     <string name="unidad_centimetro">Centímetro</string>
     <string name="unidad_decimetro">Decímetro</string>
@@ -10,7 +10,7 @@
     <string name="unidad_nanometro">Nanómetro</string>
     <string name="unidad_picometro">Picómetro</string>
 
-    <string name="unidad_kilometro_cuadrado">Kilometro cuadrado</string>
+    <string name="unidad_kilometro_cuadrado">Kilómetro cuadrado</string>
     <string name="unidad_metro_cuadrado">Metro cuadrado</string>
     <string name="unidad_centimetro_cuadrado">Centímetro cuadrado</string>
     <string name="unidad_decimetro_cuadrado">Decímetro cuadrado</string>
@@ -34,14 +34,14 @@
     <string name="simbolo_nanometro">nm</string>
     <string name="simbolo_picometro">pm</string>
 
-    <string name="simbolo_kilometro_cuadrado">km^2</string>
-    <string name="simbolo_metro_cuadrado">m^2</string>
-    <string name="simbolo_centimetro_cuadrado">cm^2</string>
-    <string name="simbolo_decimetro_cuadrado">dm^2</string>
-    <string name="simbolo_milimetro_cuadrado">mm^2</string>
-    <string name="simbolo_micrometro_cuadrado">um^2</string>
-    <string name="simbolo_nanometro_cuadrado">nm^2</string>
-    <string name="simbolo_picometro_cuadrado">pm^2</string>
+    <string name="simbolo_kilometro_cuadrado">km<sup>2</sup></string>
+    <string name="simbolo_metro_cuadrado">m<sup>2</sup></string>
+    <string name="simbolo_centimetro_cuadrado">cm<sup>2</sup></string>
+    <string name="simbolo_decimetro_cuadrado">dm<sup>2</sup></string>
+    <string name="simbolo_milimetro_cuadrado">mm<sup>2</sup></string>
+    <string name="simbolo_micrometro_cuadrado">um<sup>2</sup></string>
+    <string name="simbolo_nanometro_cuadrado">nm<sup>2</sup></string>
+    <string name="simbolo_picometro_cuadrado">pm<sup>2</sup></string>
 
     <string name="simbolo_faradio">F</string>
     <string name="simbolo_milifaradio">mF</string>
