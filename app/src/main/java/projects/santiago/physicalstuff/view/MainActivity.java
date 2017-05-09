@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
                         btn_unidad_area.setText(unit.getSimbolo());
                         btn_unidad_area.setTag(unit);
                         btn_unidad_area.setError(null);
+                        resetResultado();
                     }
                 })
                 .build();
@@ -148,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
                         btn_unidad_distancia.setText(unit.getSimbolo());
                         btn_unidad_distancia.setTag(unit);
                         btn_unidad_distancia.setError(null);
+                        resetResultado();
                     }
                 })
                 .build();
@@ -166,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
                         btn_dielectico.setText(text);
                         btn_dielectico.setTag(dielectrico);
                         btn_dielectico.setError(null);
+                        resetResultado();
                     }
                 })
                 .build();
@@ -184,6 +187,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
                         btn_unidad_capacitancia.setText(unit.getSimbolo());
                         btn_unidad_capacitancia.setTag(unit);
                         btn_unidad_capacitancia.setError(null);
+                        resetResultado();
                     }
                 })
                 .build();
