@@ -2,12 +2,14 @@ package projects.santiago.physicalstuff.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import java.math.BigDecimal;
@@ -28,6 +30,8 @@ import projects.santiago.physicalstuff.model.entity.Area;
 import projects.santiago.physicalstuff.model.entity.Capacitancia;
 import projects.santiago.physicalstuff.model.entity.Dielectrico;
 import projects.santiago.physicalstuff.model.entity.Longitud;
+import projects.santiago.physicalstuff.model.entity.unit.UArea;
+import projects.santiago.physicalstuff.model.entity.unit.UCapacitancia;
 import projects.santiago.physicalstuff.model.entity.unit.ULongitud;
 
 public class MainActivity extends AppCompatActivity implements IMainView {
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     @BindView(R.id.btn_unidad_area) AppCompatButton btn_unidad_area;
     @BindView(R.id.btn_unidad_distancia) AppCompatButton btn_unidad_distancia;
     @BindView(R.id.btn_dielectico) AppCompatButton btn_dielectico;
+    @BindView(R.id.btn_unidad_capacitancia) AppCompatButton btn_unidad_capacitancia;
     @BindView(R.id.txt_resultado) AppCompatTextView txt_resultado;
 
     @Inject
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     private MaterialDialog dialogChooseAreaUnit;
     private MaterialDialog dialogChooseLengthUnit;
     private MaterialDialog dialogChooseDielectico;
+    private MaterialDialog dialogChooseCapacitanciaUnit;
 
     public static void startActivityFrom(Context context, Bundle extras) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -65,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         presenter.loadAllLengthUnitAsPretty();
         presenter.loadAllAreaUnitAsPretty();
         presenter.loadAllDielecticosAsPretty();
+        presenter.loadAllCapacitaciaUnitAsPretty();
     }
 
     @OnClick(R.id.btn_unidad_area)
@@ -88,17 +95,25 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         }
     }
 
+    @OnClick(R.id.btn_unidad_capacitancia)
+    void onClickUnidadCapacitancia() {
+        if (dialogChooseCapacitanciaUnit != null) {
+            dialogChooseCapacitanciaUnit.show();
+        }
+    }
+
     @OnClick(R.id.btn_solucionar)
     void onClickSolucionar() {
         if (testFields()) {
-            ULongitud uArea = ((ULongitud) btn_unidad_area.getTag());
+            UArea uArea = ((UArea) btn_unidad_area.getTag());
             ULongitud uDistancia = ((ULongitud) btn_unidad_distancia.getTag());
+            UCapacitancia uCapacitancia = ((UCapacitancia) btn_unidad_capacitancia.getTag());
             Dielectrico dielectrico = ((Dielectrico) btn_dielectico.getTag());
 
-            Area area = new Area(new BigDecimal(edt_area.getText().toString()), uArea);
-            Longitud longitud = new Longitud(new BigDecimal(edt_distancia.getText().toString()), uDistancia);
+            Area area = new Area(Double.parseDouble(edt_area.getText().toString()), uArea);
+            Longitud longitud = new Longitud(Double.parseDouble(edt_distancia.getText().toString()), uDistancia);
 
-            presenter.calcularCapacitancia(area, longitud, dielectrico);
+            presenter.calcularCapacitancia(area, longitud, dielectrico, uCapacitancia);
         }
     }
 
@@ -111,8 +126,8 @@ public class MainActivity extends AppCompatActivity implements IMainView {
                     @Override
                     public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
                         int index = unitAsPretty.indexOf(text);
-                        ULongitud unit = ULongitud.values()[index];
-                        btn_unidad_area.setText(String.format("%s^2", getString(unit.getSimbolo())));
+                        UArea unit = UArea.values()[index];
+                        btn_unidad_area.setText(unit.getSimbolo());
                         btn_unidad_area.setTag(unit);
                         btn_unidad_area.setError(null);
                     }
@@ -141,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     @Override
     public void setAllDielecticosAsPretty(final List<String> dielecticosAsPretty) {
         dialogChooseDielectico = new MaterialDialog.Builder(this)
-                .title(R.string.main_dialog_choose_dielectico_title)
+                .title(R.string.main_dialog_choose_dielectrico_title)
                 .items(dielecticosAsPretty)
                 .itemsCallback(new MaterialDialog.ListCallback() {
                     @Override
@@ -157,11 +172,36 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     }
 
     @Override
+    public void setAllCapacitanciaUnitAsPretty(final List<String> unitAsPretty) {
+        dialogChooseCapacitanciaUnit = new MaterialDialog.Builder(this)
+                .title(R.string.main_dialog_choose_capacitancia_title)
+                .items(unitAsPretty)
+                .itemsCallback(new MaterialDialog.ListCallback() {
+                    @Override
+                    public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
+                        int index = unitAsPretty.indexOf(text);
+                        UCapacitancia unit = UCapacitancia.values()[index];
+                        btn_unidad_capacitancia.setText(unit.getSimbolo());
+                        btn_unidad_capacitancia.setTag(unit);
+                        btn_unidad_capacitancia.setError(null);
+                    }
+                })
+                .build();
+        // DEFAULT UNIT
+        btn_unidad_capacitancia.setTag(UCapacitancia.FARADIO);
+    }
+
+    @Override
     public void setResultado(Capacitancia capacitancia) {
-        txt_resultado.setText(String.format(Locale.getDefault(), "%.3f %s",
-                capacitancia.getValor().doubleValue(),
-                capacitancia.getUnidad().getSimbolo())
-        );
+        StringBuilder builder = new StringBuilder();
+        builder.append(capacitancia.getValor().toText()).append("\n");
+        builder.append(capacitancia.getValor().getEstimatedValue());
+        txt_resultado.setText(builder.toString());
+    }
+
+    @Override
+    public void resetResultado() {
+        txt_resultado.setText(R.string.main_resultado);
     }
 
     private boolean testFields() {
@@ -190,5 +230,10 @@ public class MainActivity extends AppCompatActivity implements IMainView {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void showMessage(@StringRes  int idMsg) {
+        Toast.makeText(this, idMsg, Toast.LENGTH_SHORT).show();
     }
 }

@@ -13,6 +13,7 @@ import projects.santiago.physicalstuff.model.entity.Dielectrico;
 import projects.santiago.physicalstuff.model.entity.Longitud;
 import projects.santiago.physicalstuff.model.entity.Solucionador;
 import projects.santiago.physicalstuff.model.entity.unit.UArea;
+import projects.santiago.physicalstuff.model.entity.unit.UCapacitancia;
 import projects.santiago.physicalstuff.model.entity.unit.ULongitud;
 
 /**
@@ -28,24 +29,34 @@ public class MainInteractor implements IMainInteractor {
 
     @Override
     public List<String> getAllAreaUnitsAsPretty() {
-        List<String> unitsAsPretty = new ArrayList<>();
-        for (UArea uArea : UArea.values()) {
-            String name = context.getString(uArea.getName());
-            String simbolo = context.getString(uArea.getSimbolo());
-            unitsAsPretty.add(String.format("%s (%s)", name, simbolo));
+        try {
+            List<String> unitsAsPretty = new ArrayList<>();
+            for (UArea uArea : UArea.values()) {
+                String name = context.getString(uArea.getName());
+                String simbolo = context.getString(uArea.getSimbolo());
+                unitsAsPretty.add(String.format("%s (%s)", name, simbolo));
+            }
+            return unitsAsPretty;
+        }catch (Throwable e) {
+            e.printStackTrace();
+            return new ArrayList<>();
         }
-        return unitsAsPretty;
     }
 
     @Override
     public List<String> getAllLengthUnitAsPretty() {
-        List<String> unitsAsPretty = new ArrayList<>();
-        for (ULongitud uLongitud : ULongitud.values()) {
-            String nombre = context.getString(uLongitud.getName());
-            String simbolo = context.getString(uLongitud.getSimbolo());
-            unitsAsPretty.add(String.format("%s (%s)", nombre, simbolo));
+        try {
+            List<String> unitsAsPretty = new ArrayList<>();
+            for (ULongitud uLongitud : ULongitud.values()) {
+                String nombre = context.getString(uLongitud.getName());
+                String simbolo = context.getString(uLongitud.getSimbolo());
+                unitsAsPretty.add(String.format("%s (%s)", nombre, simbolo));
+            }
+            return unitsAsPretty;
+        }catch (Throwable e) {
+            e.printStackTrace();
+            return new ArrayList<>();
         }
-        return unitsAsPretty;
     }
 
     @Override
@@ -69,15 +80,30 @@ public class MainInteractor implements IMainInteractor {
 
             }
             return dielecticosAsPretty;
-        }catch (Exception e) {
+        }catch (Throwable e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
 
     @Override
-    public Capacitancia getCapacitancia(Area area, Longitud longitud, Dielectrico dielectrico) {
-        Solucionador solucionador = Solucionador.getInstance(area, longitud, dielectrico);
-        return solucionador.calcularCapacitancia();
+    public List<String> getAllCapacitanciaUnitAsPretty() {
+        try {
+            List<String> unitsAsPretty = new ArrayList<>();
+            for (UCapacitancia uCapacitancia : UCapacitancia.values()) {
+                String nombre = context.getString(uCapacitancia.getNombre());
+                String simbolo = context.getString(uCapacitancia.getSimbolo());
+                unitsAsPretty.add(String.format("%s (%s)", nombre, simbolo));
+            }
+            return unitsAsPretty;
+        }catch (Throwable e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public Capacitancia getCapacitancia(Area area, Longitud longitud, Dielectrico dielectrico, UCapacitancia unidadRespuesta) throws Exception {
+        return Solucionador.calcularCapacitancia(area, longitud, dielectrico, unidadRespuesta);
     }
 }

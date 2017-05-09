@@ -1,5 +1,7 @@
 package projects.santiago.physicalstuff.model.entity;
 
+import org.jscience.physics.amount.Amount;
+
 import java.math.BigDecimal;
 
 import javax.measure.quantity.ElectricCapacitance;
@@ -12,22 +14,22 @@ import projects.santiago.physicalstuff.model.entity.unit.UCapacitancia;
  */
 
 public class Capacitancia {
-    private BigDecimal valor;
+    private Amount<ElectricCapacitance> valor;
     private UCapacitancia unidad;
 
-    public Capacitancia(BigDecimal valor, UCapacitancia unidad) {
-        this.valor = valor;
+    public Capacitancia(Double valor, UCapacitancia unidad) {
+        this.valor = Amount.valueOf(valor, unidad.getUnidad());
         this.unidad = unidad;
     }
 
     public Capacitancia() {
     }
 
-    public BigDecimal getValor() {
+    public Amount<ElectricCapacitance> getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(Amount<ElectricCapacitance> valor) {
         this.valor = valor;
     }
 

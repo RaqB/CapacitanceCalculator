@@ -10,6 +10,15 @@
     <string name="unidad_nanometro">Nanómetro</string>
     <string name="unidad_picometro">Picómetro</string>
 
+    <string name="unidad_kilometro_cuadrado">Kilometro cuadrado</string>
+    <string name="unidad_metro_cuadrado">Metro cuadrado</string>
+    <string name="unidad_centimetro_cuadrado">Centímetro cuadrado</string>
+    <string name="unidad_decimetro_cuadrado">Decímetro cuadrado</string>
+    <string name="unidad_milimetro_cuadrado">Milímetro cuadrado</string>
+    <string name="unidad_micrometro_cuadrado">Micrómetro cuadrado</string>
+    <string name="unidad_nanometro_cuadrado">Nanómetro cuadrado</string>
+    <string name="unidad_picometro_cuadrado">Picómetro cuadrado</string>
+
     <string name="unidad_faradio">Faradio</string>
     <string name="unidad_milifaradio">Milifaradio</string>
     <string name="unidad_microfaradio">Microfaradio</string>
@@ -40,29 +49,32 @@
     <string name="simbolo_nanofaradio">nF</string>
     <string name="simbolo_picofaradio">pF</string>
 
-    <string name="dielectico_vacio">Vacio</string>
-    <string name="dielectico_aceite_mineral">Aceite mineral</string>
-    <string name="dielectico_aceite">Aceite</string>
-    <string name="dielectico_agua_destilada">Agua destilada</string>
-    <string name="dielectico_caucho">Caucho</string>
-    <string name="dielectico_acetona">Acetona</string>
-    <string name="dielectico_aire">Aire</string>
-    <string name="dielectico_papel">Papel</string>
-    <string name="dielectico_papel_parafinado">Papel parafinado</string>
-    <string name="dielectico_parafina">Parafina</string>
-    <string name="dielectico_cuarzo">Cuarzo</string>
-    <string name="dielectico_pvc">PVC</string>
-    <string name="dielectico_baquelita">Baquelita</string>
-    <string name="dielectico_vidrio">Vidrio</string>
-    <string name="dielectico_mica">Mica</string>
+    <string name="dielectrico_vacio">Vacio</string>
+    <string name="dielectrico_aceite_mineral">Aceite mineral</string>
+    <string name="dielectrico_aceite">Aceite</string>
+    <string name="dielectrico_agua_destilada">Agua destilada</string>
+    <string name="dielectrico_caucho">Caucho</string>
+    <string name="dielectrico_acetona">Acetona</string>
+    <string name="dielectrico_aire">Aire</string>
+    <string name="dielectrico_papel">Papel</string>
+    <string name="dielectrico_papel_parafinado">Papel parafinado</string>
+    <string name="dielectrico_parafina">Parafina</string>
+    <string name="dielectrico_cuarzo">Cuarzo</string>
+    <string name="dielectrico_pvc">PVC</string>
+    <string name="dielectrico_baquelita">Baquelita</string>
+    <string name="dielectrico_vidrio">Vidrio</string>
+    <string name="dielectrico_mica">Mica</string>
 
     <string name="main_area">Área</string>
     <string name="main_valor">Valor</string>
     <string name="main_unidad">Unidad</string>
     <string name="main_distancia">Distancia</string>
-    <string name="main_dielectico">Dieléctico</string>
+    <string name="main_dielectrico">Dieléctrico</string>
     <string name="main_material">Material</string>
     <string name="main_dialog_choose_area_unit_title">Unidades de área</string>
     <string name="main_dialog_choose_distancia_unit_title">Unidades de longitud</string>
-    <string name="main_dialog_choose_dielectico_title">Dielécticos comunes</string>
+    <string name="main_dialog_choose_dielectrico_title">Dielécticos comunes</string>
+    <string name="main_resultado">Resultado</string>
+    <string name="main_msg_error_solucion">Error, no pude calcular la capacitancia</string>
+    <string name="main_dialog_choose_capacitancia_title">Unidades de capacitancia eléctrica</string>
 </resources>

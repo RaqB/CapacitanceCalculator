@@ -1,11 +1,13 @@
 package projects.santiago.physicalstuff.presenter;
 
+import projects.santiago.physicalstuff.R;
 import projects.santiago.physicalstuff.contract.IMainInteractor;
 import projects.santiago.physicalstuff.contract.IMainPresenter;
 import projects.santiago.physicalstuff.contract.IMainView;
 import projects.santiago.physicalstuff.model.entity.Area;
 import projects.santiago.physicalstuff.model.entity.Dielectrico;
 import projects.santiago.physicalstuff.model.entity.Longitud;
+import projects.santiago.physicalstuff.model.entity.unit.UCapacitancia;
 
 /**
  * Created by santiago on 06/05/17.
@@ -36,7 +38,17 @@ public class MainPresenter implements IMainPresenter {
     }
 
     @Override
-    public void calcularCapacitancia(Area area, Longitud longitud, Dielectrico dielectrico) {
-        view.setResultado(interactor.getCapacitancia(area, longitud, dielectrico));
+    public void loadAllCapacitaciaUnitAsPretty() {
+        view.setAllCapacitanciaUnitAsPretty(interactor.getAllCapacitanciaUnitAsPretty());
+    }
+
+    @Override
+    public void calcularCapacitancia(Area area, Longitud longitud, Dielectrico dielectrico, UCapacitancia unidadRespuesta) {
+        try {
+            view.setResultado(interactor.getCapacitancia(area, longitud, dielectrico, unidadRespuesta));
+        }catch (Exception e) {
+            view.resetResultado();
+            view.showMessage(R.string.main_msg_error_solucion);
+        }
     }
 }
