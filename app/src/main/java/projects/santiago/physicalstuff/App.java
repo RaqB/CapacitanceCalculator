@@ -2,6 +2,7 @@ package projects.santiago.physicalstuff;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import projects.santiago.physicalstuff.di.component.ApplicationComponent;
 import projects.santiago.physicalstuff.di.component.DaggerApplicationComponent;
@@ -16,6 +17,12 @@ public class App extends Application {
 
     public static App get(Context context) {
         return (App) context.getApplicationContext();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     @Override

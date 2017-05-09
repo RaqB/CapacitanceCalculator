@@ -1,7 +1,6 @@
 package projects.santiago.physicalstuff.model.entity;
 
-import java.math.BigDecimal;
-
+import org.jscience.physics.amount.Amount;
 import javax.measure.unit.Unit;
 
 import projects.santiago.physicalstuff.model.entity.unit.UArea;
@@ -11,22 +10,22 @@ import projects.santiago.physicalstuff.model.entity.unit.UArea;
  */
 
 public class Area {
-    private BigDecimal valor;
+    private Amount<javax.measure.quantity.Area> valor;
     private UArea unidad;
 
-    public Area(BigDecimal valor, UArea unidad) {
-        this.valor = valor;
+    public Area(Double valor, UArea unidad) {
+        this.valor = Amount.valueOf(valor, unidad.getUnidad());
         this.unidad = unidad;
     }
 
     public Area() {
     }
 
-    public BigDecimal getValor() {
+    public Amount<javax.measure.quantity.Area> getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(Amount<javax.measure.quantity.Area> valor) {
         this.valor = valor;
     }
 

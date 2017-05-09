@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -102,7 +101,7 @@
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/txt_dielectico"
-            android:text="@string/main_dielectico"
+            android:text="@string/main_dielectrico"
             android:textSize="@dimen/main_field_text_size"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -128,17 +127,37 @@
 
     </LinearLayout>
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_solucionar"
-        android:text="Solucionar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_solucionar"
+            android:text="Solucionar"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_unidad_capacitancia"
+            android:text="F"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            style="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/txt_resultado"
         android:textStyle="bold|italic"
         android:textSize="18sp"
-        android:hint="Resultado"
+        android:hint="@string/main_resultado"
         android:gravity="center"
         android:padding="16dp"
         android:layout_width="match_parent"

@@ -14,10 +14,10 @@ import static javax.measure.unit.SI.*;
 
 public enum  UCapacitancia {
     FARADIO(R.string.simbolo_faradio, R.string.unidad_faradio, FARAD),
-    MILIFARADIO(R.string.simbolo_milifaradio, R.string.unidad_milifaradio, MetricPrefix.MILLI(FARAD)),
-    MICROFARADIO(R.string.simbolo_microfaradio, R.string.unidad_microfaradio, MetricPrefix.MICRO(FARAD)),
-    NANOFARADIO(R.string.simbolo_nanofaradio, R.string.unidad_nanofaradio, MetricPrefix.NANO(FARAD)),
-    PICOFARADIO(R.string.simbolo_picofaradio, R.string.unidad_picofaradio, MetricPrefix.PICO(FARAD));
+    MILIFARADIO(R.string.simbolo_milifaradio, R.string.unidad_milifaradio, MILLI(FARAD)),
+    MICROFARADIO(R.string.simbolo_microfaradio, R.string.unidad_microfaradio, MICRO(FARAD)),
+    NANOFARADIO(R.string.simbolo_nanofaradio, R.string.unidad_nanofaradio, NANO(FARAD)),
+    PICOFARADIO(R.string.simbolo_picofaradio, R.string.unidad_picofaradio, PICO(FARAD));
 
     @StringRes
     private final int simbolo;

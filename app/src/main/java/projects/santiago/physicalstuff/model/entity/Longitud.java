@@ -1,5 +1,7 @@
 package projects.santiago.physicalstuff.model.entity;
 
+import org.jscience.physics.amount.Amount;
+
 import java.math.BigDecimal;
 
 import javax.measure.quantity.Length;
@@ -12,22 +14,22 @@ import projects.santiago.physicalstuff.model.entity.unit.ULongitud;
  */
 
 public class Longitud {
-    private BigDecimal valor;
+    private Amount<Length> valor;
     private ULongitud unidad;
 
-    public Longitud(BigDecimal valor, ULongitud unidad) {
-        this.valor = valor;
+    public Longitud(Double valor, ULongitud unidad) {
+        this.valor = Amount.valueOf(valor, unidad.getUnidad());
         this.unidad = unidad;
     }
 
     public Longitud() {
     }
 
-    public BigDecimal getValor() {
+    public Amount<Length> getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(Amount<Length> valor) {
         this.valor = valor;
     }
 

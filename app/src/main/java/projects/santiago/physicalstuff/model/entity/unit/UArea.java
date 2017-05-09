@@ -14,14 +14,14 @@ import static javax.measure.unit.SI.*;
  */
 
 public enum UArea {
-    KILOMETRO_CUADRARO(R.string.simbolo_kilometro_cuadrado, R.string.unidad_kilometro, MetricPrefix.KILO(SQUARE_METRE)),
-    METRO_CUADRARO(R.string.simbolo_metro_cuadrado, R.string.unidad_metro, SQUARE_METRE),
-    DECIMETRO_CUADRARO(R.string.simbolo_decimetro_cuadrado, R.string.unidad_decimetro, MetricPrefix.DECI(SQUARE_METRE)),
-    CENTIMETRO_CUADRARO(R.string.simbolo_centimetro_cuadrado, R.string.unidad_centimetro, MetricPrefix.CENTI(SQUARE_METRE)),
-    MIILIMETRO_CUADRARO(R.string.simbolo_milimetro_cuadrado, R.string.unidad_milimetro, MetricPrefix.MILLI(SQUARE_METRE)),
-    MICROMETRO_CUADRARO(R.string.simbolo_micrometro_cuadrado, R.string.unidad_micrometro, MetricPrefix.MICRO(SQUARE_METRE)),
-    NANOMETRO_CUADRARO(R.string.simbolo_nanometro_cuadrado, R.string.unidad_nanometro, MetricPrefix.NANO(SQUARE_METRE)),
-    PICOMETRO_CUADRARO(R.string.simbolo_picometro_cuadrado, R.string.unidad_picometro, MetricPrefix.PICO(SQUARE_METRE));
+    KILOMETRO_CUADRARO(R.string.simbolo_kilometro_cuadrado, R.string.unidad_kilometro_cuadrado, KILO(SQUARE_METRE)),
+    METRO_CUADRARO(R.string.simbolo_metro_cuadrado, R.string.unidad_metro_cuadrado, SQUARE_METRE),
+    DECIMETRO_CUADRARO(R.string.simbolo_decimetro_cuadrado, R.string.unidad_decimetro_cuadrado, DECI(SQUARE_METRE)),
+    CENTIMETRO_CUADRARO(R.string.simbolo_centimetro_cuadrado, R.string.unidad_centimetro_cuadrado, CENTI(SQUARE_METRE)),
+    MIILIMETRO_CUADRARO(R.string.simbolo_milimetro_cuadrado, R.string.unidad_milimetro_cuadrado, MILLI(SQUARE_METRE)),
+    MICROMETRO_CUADRARO(R.string.simbolo_micrometro_cuadrado, R.string.unidad_micrometro_cuadrado, MICRO(SQUARE_METRE)),
+    NANOMETRO_CUADRARO(R.string.simbolo_nanometro_cuadrado, R.string.unidad_nanometro_cuadrado, NANO(SQUARE_METRE)),
+    PICOMETRO_CUADRARO(R.string.simbolo_picometro_cuadrado, R.string.unidad_picometro_cuadrado, PICO(SQUARE_METRE));
 
     @StringRes
     private final int simbolo;

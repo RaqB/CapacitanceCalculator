@@ -15,12 +15,12 @@ import projects.santiago.physicalstuff.R;
 public enum ULongitud {
     KILOMETRO(R.string.simbolo_kilometro, R.string.unidad_kilometro, KILOMETRE),
     METRO(R.string.simbolo_metro, R.string.unidad_metro, METRE),
-    DECIMETRO(R.string.simbolo_decimetro, R.string.unidad_decimetro, MetricPrefix.DECI(METRE)),
+    DECIMETRO(R.string.simbolo_decimetro, R.string.unidad_decimetro, DECI(METRE)),
     CENTIMETRO(R.string.simbolo_centimetro, R.string.unidad_centimetro, CENTIMETRE),
     MIILIMETRO(R.string.simbolo_milimetro, R.string.unidad_milimetro, MILLIMETRE),
-    MICROMETRO(R.string.simbolo_micrometro, R.string.unidad_micrometro, MetricPrefix.MICRO(METRE)),
-    NANOMETRO(R.string.simbolo_nanometro, R.string.unidad_nanometro, MetricPrefix.NANO(METRE)),
-    PICOMETRO(R.string.simbolo_picometro, R.string.unidad_picometro, MetricPrefix.PICO(METRE));
+    MICROMETRO(R.string.simbolo_micrometro, R.string.unidad_micrometro, MICRO(METRE)),
+    NANOMETRO(R.string.simbolo_nanometro, R.string.unidad_nanometro, NANO(METRE)),
+    PICOMETRO(R.string.simbolo_picometro, R.string.unidad_picometro, PICO(METRE));
 
     @StringRes
     private final int simbolo;

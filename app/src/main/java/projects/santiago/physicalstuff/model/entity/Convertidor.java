@@ -1,5 +1,7 @@
 package projects.santiago.physicalstuff.model.entity;
 
+import android.util.Log;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 
@@ -18,32 +20,44 @@ import static javax.measure.unit.SI.SQUARE_METRE;
  */
 
 public class Convertidor {
+    private static final String TAG = Convertidor.class.getSimpleName();
 
     private Convertidor() {
-
     }
 
-    public static Area toSquareMeters(Area area) {
-        UnitConverter toSquareMeters = area.getUnidad().getConverterTo(SQUARE_METRE);
-        Area resultado = new Area();
-        resultado.setUnidad(UArea.METRO_CUADRARO);
-        resultado.setValor(toSquareMeters.convert(area.getValor(), MathContext.DECIMAL64));
-        return resultado;
+    public static Area toSquareMeters(Area area) throws Exception {
+        try {
+            Area resultado = new Area();
+            resultado.setUnidad(UArea.METRO_CUADRARO);
+            resultado.setValor(area.getValor().to(SQUARE_METRE));
+            return resultado;
+        }catch (Exception e) {
+            Log.e(TAG, "MyError:toMeters", e);
+            throw e;
+        }
     }
 
-    public static Longitud toSquareMeters(Longitud longitud) {
-        UnitConverter toMeters = longitud.getUnidad().getConverterTo(METRE);
-        Longitud resultado = new Longitud();
-        resultado.setUnidad(ULongitud.METRO);
-        resultado.setValor(toMeters.convert(longitud.getValor(), MathContext.DECIMAL64));
-        return resultado;
+    public static Longitud toMeters(Longitud longitud) throws Exception {
+        try {
+            Longitud resultado = new Longitud();
+            resultado.setUnidad(ULongitud.METRO);
+            resultado.setValor(longitud.getValor().to(METRE));
+            return resultado;
+        }catch (Exception e) {
+            Log.e(TAG, "MyError:toMeters", e);
+            throw e;
+        }
     }
 
-    public static Capacitancia toFaradio(Capacitancia capacitancia) {
-        UnitConverter toFarad = capacitancia.getUnidad().getConverterTo(FARAD);
-        Capacitancia resultado = new Capacitancia();
-        resultado.setUnidad(UCapacitancia.FARADIO);
-        resultado.setValor(toFarad.convert(capacitancia.getValor(), MathContext.DECIMAL64));
-        return resultado;
+    public static Capacitancia toFarad(Capacitancia capacitancia) throws Exception {
+        try {
+            Capacitancia resultado = new Capacitancia();
+            resultado.setUnidad(UCapacitancia.FARADIO);
+            resultado.setValor(capacitancia.getValor().to(FARAD));
+            return resultado;
+        }catch (Exception e) {
+            Log.e(TAG, "MyError:toFarad", e);
+            throw e;
+        }
     }
 }

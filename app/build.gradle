@@ -26,6 +26,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -36,6 +37,9 @@ android {
         debug {
             signingConfig signingConfigs.config
         }
+    }
+    dexOptions {
+        javaMaxHeapSize = "4g"
     }
 }
 
@@ -55,8 +59,9 @@ dependencies {
     compile 'com.afollestad.material-dialogs:core:0.9.4.4'
     compile 'com.afollestad.material-dialogs:commons:0.9.4.4'
     compile "com.google.dagger:dagger:$rootProject.daggerVersion"
-    compile "javax.measure:jsr-275:0.9.2"
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
     compile "org.jscience:jscience:4.3.1"
+    compile "com.android.support:multidex:1.0.1"
     testCompile "junit:junit:$rootProject.junitVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
