@@ -24,9 +24,14 @@ public class Solucionador {
             Capacitancia resultado = new Capacitancia();
             resultado.setUnidad(unidadRespuesta);
 
+            Log.i(TAG, "MyInfo: unidad area input " + area.getUnidad());
+            Log.i(TAG, "MyInfo: unidad longitud input " + longitud.getUnidad());
+
             area = Convertidor.toSquareMeters(area);
             longitud = Convertidor.toMeters(longitud);
 
+            Log.i(TAG, "MyInfo: unidad area output " + area.getUnidad());
+            Log.i(TAG, "MyInfo: unidad longitud output " + longitud.getUnidad());
             Log.i(TAG, "MyInfo: area en metros " + area.getValor().toText());
             Log.i(TAG, "MyInfo: longitud en metros " + longitud.getValor().toText());
 
