@@ -45,7 +45,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile "com.android.support:appcompat-v7:$rootProject.androidSupportVersion"
@@ -56,12 +56,13 @@ dependencies {
     compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     compile "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxJavaVersion"
-    compile 'com.afollestad.material-dialogs:core:0.9.4.4'
-    compile 'com.afollestad.material-dialogs:commons:0.9.4.4'
+    compile "com.afollestad.material-dialogs:core:$rootProject.materialdialogsVersion"
+    compile "com.afollestad.material-dialogs:commons:$rootProject.materialdialogsVersion"
     compile "com.google.dagger:dagger:$rootProject.daggerVersion"
-    compile 'com.google.code.findbugs:jsr305:2.0.1'
-    compile "org.jscience:jscience:4.3.1"
-    compile "com.android.support:multidex:1.0.1"
+    compile ("org.jscience:jscience:$rootProject.jscienceVersion") {
+        exclude group: 'org.javolution', module: 'javolution'
+    }
+    compile "com.android.support:multidex:$rootProject.multidexVersion"
     testCompile "junit:junit:$rootProject.junitVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"

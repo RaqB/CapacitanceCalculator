@@ -37,4 +37,8 @@ ext {
     junitVersion = "4.12"
     daggerVersion = "2.10"
     jsr250apiVersion = "1.0"
+    jscienceVersion = "4.3.1"
+    materialdialogsVersion = "0.9.4.4"
+    multidexVersion = "1.0.1"
+    espressoVersion = "2.2.2"
 }
