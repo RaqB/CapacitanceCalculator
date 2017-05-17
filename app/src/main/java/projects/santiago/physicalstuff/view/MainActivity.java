@@ -210,27 +210,27 @@ public class MainActivity extends AppCompatActivity implements IMainView {
 
     private boolean testFields() {
         if (edt_area.getText().toString().trim().isEmpty()) {
-            edt_area.setError("Campo requerido");
+            edt_area.setError(getString(R.string.all_required_field));
             return false;
         }
 
         if (btn_unidad_area.getTag() == null) {
-            btn_unidad_area.setError("Campo requerido");
+            btn_unidad_area.setError(getString(R.string.all_required_field));
             return false;
         }
 
         if (edt_distancia.getText().toString().trim().isEmpty()) {
-            edt_distancia.setError("Campo requerido");
+            edt_distancia.setError(getString(R.string.all_required_field));
             return false;
         }
 
         if (btn_unidad_distancia.getTag() == null) {
-            btn_unidad_distancia.setError("Campo requerido");
+            btn_unidad_distancia.setError(getString(R.string.all_required_field));
             return false;
         }
 
         if (btn_dielectico.getTag() == null) {
-            btn_dielectico.setError("Campo requerido");
+            btn_dielectico.setError(getString(R.string.all_required_field));
             return false;
         }
         return true;

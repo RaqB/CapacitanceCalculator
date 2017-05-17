@@ -77,4 +77,5 @@
     <string name="main_resultado">Esperando solucionar&#8230;</string>
     <string name="main_msg_error_solucion">Error, no pude calcular la capacitancia</string>
     <string name="main_dialog_choose_capacitancia_title">Unidades de capacitancia eléctrica</string>
+    <string name="all_required_field">Campo requerido</string>
 </resources>
