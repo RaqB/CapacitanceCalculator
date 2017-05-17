@@ -10,3 +10,7 @@
     <img src="./screenshots/04.png" height="600" width="320">
 </div>
 
+Licencia
+----
+
+MIT
